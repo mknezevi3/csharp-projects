@@ -1,10 +1,4 @@
 ﻿
-using System.Diagnostics.Tracing;
-
-List<string> toDo = new List<string>();
-
-string userInput;
-
 
 static void addToDo(List<string> toDo)
 {
@@ -19,7 +13,7 @@ do
         do
         {
             description = Console.ReadLine();
-            if (toDo.Contains(description)
+            if (toDo.Contains(description))
                 { 
             Console.WriteLine("Description must be unique!");
                 }
@@ -37,8 +31,10 @@ do
 
 toDo.Add(description);
 
-
 }
+
+
+
 
 
 static void seeToDos(List<string> toDo) 
@@ -53,9 +49,29 @@ static void seeToDos(List<string> toDo)
 }
 
 
+static void removeToDos(List<string> toDo)
+{
+    
+    Console.WriteLine("Type number of ToDo you want to remove :");
+    string userInput = Console.ReadLine();
+    if(int.TryParse(userInput,out int number) && number <= toDo.Count && number > 0)
+    {
+        toDo.RemoveAt(number-1);
+    }
+    else
+    {
+        Console.WriteLine("Your input was not correct!");
+    }
+    
+}
 
 
 
+
+
+List<string> toDo = new List<string>();
+
+string userInput;
 
 
 
@@ -87,7 +103,7 @@ do
             addToDo(toDo);
             break;
         case "R":
-            
+            removeToDos(toDo);
             break;
     }
 
