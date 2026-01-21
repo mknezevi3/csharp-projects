@@ -51,6 +51,11 @@ static void seeToDos(List<string> toDo)
 
 static void removeToDos(List<string> toDo)
 {
+    if(toDo.Count == 0) 
+    {
+        Console.WriteLine("No todos have been added yet.");
+        return;
+    }
     
     Console.WriteLine("Type number of ToDo you want to remove :");
     string userInput = Console.ReadLine();
