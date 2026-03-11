@@ -1,56 +1,40 @@
-﻿
+﻿using System.Text.Json;
+
+var knjiga = new Book ( "Clean Code", "Robert Martin", 464 );
+
+var json = JsonSerializer.Serialize ( knjiga );
+
+Console.WriteLine(json);
+
+var notjson = JsonSerializer.Deserialize<Book> (json);
+
+Console.WriteLine (notjson.Title + notjson.Author + notjson.Pages);
+
+
+
+
+
+
+
+
+
+
+
 
 Console.ReadKey();
 
-
-class MedicalAppointment
+class Book
 {
-    private string _patientName;
-    private DateTime _date;
+    public string Title { get; set; }
 
-    public MedicalAppointment(string patientName, DateTime date)
+    public string Author { get; set; }
+
+    public int Pages { get; set; }
+
+    public Book(string title,string author,int pages)
     {
-        _patientName = patientName;
-        _date = date;
-    }
-
-   
-
-    public MedicalAppointment(
-        string patientName = "Unknown", int daysFromNow = 7)
-    {
-        _patientName = patientName;
-        _date = DateTime.Now.AddDays(daysFromNow);
-    }
-
-    public DateTime GetDate() => _date;
-
-    public void Reschedule(DateTime date)
-    {
-        _date = date;
-        var printer = new MedicalAppointmentPrinter();
-        printer.Print(this);
-    }
-
-    public void OverwriteMonthAndDay(int month, int day)
-    {
-        _date = new DateTime(_date.Year, month, day);
-    }
-
-    public void MoveByMonthsAndDays(int monthsToAdd, int daysToAdd)
-    {
-        _date = new DateTime(
-            _date.Year,
-            _date.Month + monthsToAdd,
-            _date.Day + daysToAdd);
-    }
-}
-
-class MedicalAppointmentPrinter
-{
-    public void Print(MedicalAppointment medicalAppointment)
-    {
-        Console.WriteLine(
-            "Appointment will take place on " + medicalAppointment.GetDate());
+        Title = title;
+        Author = author;
+        Pages = pages;
     }
 }
