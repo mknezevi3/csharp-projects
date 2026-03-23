@@ -1,5 +1,5 @@
-﻿using CookieCookbook.Data;
-using CookieCookbook.Models;
+﻿using RecipeApp.Data;
+using RecipeApp.Models;
 
 Console.WriteLine("Create a new cookie recipe! Available ingredients are:");
 

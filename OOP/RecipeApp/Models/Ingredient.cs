@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace CookieCookbook.Models;
+namespace RecipeApp.Models;
 
 public class Ingredient
 {

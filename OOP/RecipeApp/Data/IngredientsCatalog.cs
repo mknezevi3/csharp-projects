@@ -1,9 +1,9 @@
-﻿using CookieCookbook.Models;
+﻿using RecipeApp.Models;
 using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace CookieCookbook.Data;
+namespace RecipeApp.Data;
 
 
 public static class IngredientsCatalog
