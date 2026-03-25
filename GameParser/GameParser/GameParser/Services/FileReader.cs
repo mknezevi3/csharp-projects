@@ -1,10 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using GameParser.Interfaces;
 
 namespace GameParser.Services;
 
-public class FileReader
+public class FileReader : IFileReader
 {
     public string Read(string fileName)
     {

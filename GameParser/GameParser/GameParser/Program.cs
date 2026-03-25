@@ -1,11 +1,13 @@
 ﻿using GameParser.Models;
 using GameParser.Services;
+using GameParser.Interfaces;
+
 
 string userInput;
 
-var fileReader = new FileReader();
-var jsonParser = new JsonParser();
-var logger = new Logger();
+IFileReader fileReader = new FileReader();
+IJsonParser jsonParser = new JsonParser();
+ILogger logger = new Logger();
 
 do
 {

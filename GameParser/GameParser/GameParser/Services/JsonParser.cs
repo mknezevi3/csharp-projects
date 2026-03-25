@@ -2,12 +2,18 @@
 using System.Collections.Generic;
 using System.Text;
 using System.Text.Json;
-namespace GameParser.Services;
 using GameParser.Models;
+using GameParser.Interfaces;
 
 
 
-public class JsonParser
+
+namespace GameParser.Services;
+
+
+
+
+public class JsonParser : IJsonParser
 {
     public List<Game> Parse(string content)
     {
