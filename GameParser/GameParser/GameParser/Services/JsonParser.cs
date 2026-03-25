@@ -9,7 +9,7 @@ using GameParser.Models;
 
 public class JsonParser
 {
-    public static List<Game> Parse(string content)
+    public List<Game> Parse(string content)
     {
         try
         {

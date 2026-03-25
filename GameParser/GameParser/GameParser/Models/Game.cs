@@ -6,8 +6,8 @@ namespace GameParser.Models;
 
 public class Game
 {
-    public string Title { get; set; }
-    public int ReleaseYear { get; set; }
+    public string Title { get; init; }
+    public int ReleaseYear { get; init; }
 
-    public double Rating;
+    public double Rating { get; init; }
 }

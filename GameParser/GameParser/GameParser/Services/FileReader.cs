@@ -6,7 +6,7 @@ namespace GameParser.Services;
 
 public class FileReader
 {
-    public static string Read(string fileName)
+    public string Read(string fileName)
     {
         try
         {

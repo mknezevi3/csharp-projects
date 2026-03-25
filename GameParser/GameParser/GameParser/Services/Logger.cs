@@ -7,7 +7,7 @@ namespace GameParser.Services;
 
 public class Logger
 {
-    public static void Log(Exception ex)
+    public void Log(Exception ex)
     {
         File.AppendAllText("log.txt", $"{DateTime.Now}\n{ex.Message}\n{ex.StackTrace}\n\n");
     }

@@ -1,8 +1,11 @@
 ﻿using GameParser.Models;
 using GameParser.Services;
-using System.IO.Pipelines;
 
 string userInput;
+
+var fileReader = new FileReader();
+var jsonParser = new JsonParser();
+var logger = new Logger();
 
 do
 {
@@ -10,22 +13,11 @@ do
     userInput = Console.ReadLine();
 } while (!InputValidator.ValidateFileName(userInput));
 
-string content = null;
-
 try
 {
-    content = FileReader.Read(userInput);
+    string content = fileReader.Read(userInput);
 
-}
-catch (Exception ex)
-{
-    Console.WriteLine(ex.Message); 
-}
-
-
-try
-{
-    List<Game> games = JsonParser.Parse(content);
+    List<Game> games = jsonParser.Parse(content);
 
     foreach (Game game in games)
     {
@@ -33,16 +25,12 @@ try
         Console.WriteLine(game.ReleaseYear);
         Console.WriteLine(game.Rating);
     }
-
 }
 catch (Exception ex)
 {
-    Console.WriteLine($"JSON in the {userInput} was not in a valid format. JSON body:");
-    Console.WriteLine(content);
-    Console.WriteLine("Sorry! The application has experienced an unexpected error and will have to be closed.");
-    Logger.Log(ex);
+    Console.WriteLine($"Error processing file: {userInput}");
+    logger.Log(ex);
 }
-
 
 Console.ReadKey();
 
